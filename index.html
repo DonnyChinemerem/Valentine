@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Esther 💜 Be My Valentine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #6a0dad, #b57edc);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 25px;
+      border-radius: 25px;
+      width: 90%;
+      max-width: 420px;
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .purple-note {
+      font-size: 14px;
+      margin-bottom: 15px;
+      opacity: 0.9;
+    }
+
+    /* Image gallery */
+    .gallery {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .gallery img {
+      width: 90px;
+      height: 90px;
+      border-radius: 15px;
+      object-fit: cover;
+      border: 3px solid white;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    #yesBtn {
+      background: #ff4fd8;
+      color: white;
+    }
+
+    #noBtn {
+      background: white;
+      color: #6a0dad;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Esther 💜</h1>
+    <div class="purple-note">
+      I made this purple because it’s your favorite color 💜
+    </div>
+
+    <!-- Multiple pictures slot -->
+    <div class="gallery">
+      <img src="esther1.jpg" alt="Esther">
+      <img src="esther2.jpg" alt="Esther">
+      <img src="esther3.jpg" alt="Esther">
+    </div>
+
+    <p>Will you be my Valentine?</p>
+
+    <button id="yesBtn" onclick="yesClicked()">YES 💖</button>
+    <button id="noBtn" onmouseover="runAway()">NO 🙃</button>
+  </div>
+
+  <script>
+    let tries = 0;
+
+    function runAway() {
+      const no = document.getElementById("noBtn");
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
+      no.style.left = x + "px";
+      no.style.top = y + "px";
+
+      tries++;
+      if (tries > 6) {
+        no.style.display = "none";
+      }
+    }
+
+    function yesClicked() {
+      document.body.innerHTML = `
+        <h1>YAYYY 💜🥰</h1>
+        <p>You just made me the happiest person ever.</p>
+        <p>I love you, Esther ❤️</p>
+      `;
+    }
+  </script>
+
+</body>
+</html>
